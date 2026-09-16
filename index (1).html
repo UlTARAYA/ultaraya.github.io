@@ -1,0 +1,914 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>قوانین اولتریا | ULTRAYA</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Vazirmatn',sans-serif;
+    background:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,.06), transparent 25%),
+        radial-gradient(circle at 80% 90%, rgba(255,255,255,.04), transparent 25%),
+        #050505;
+    color:#eee;
+    line-height:2;
+    overflow-x:hidden;
+}
+
+/* ---------- BACKGROUND ---------- */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    opacity:.035;
+    background-image:
+        linear-gradient(rgba(255,255,255,.8) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.8) 1px,transparent 1px);
+    background-size:45px 45px;
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+    position:relative;
+    min-height:430px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:50px 20px;
+    overflow:hidden;
+    border-bottom:1px solid #252525;
+}
+
+header::before{
+    content:"ULTRAYA";
+    position:absolute;
+    font-size:clamp(90px,20vw,260px);
+    font-weight:900;
+    color:#fff;
+    opacity:.025;
+    letter-spacing:15px;
+    white-space:nowrap;
+}
+
+.header-content{
+    position:relative;
+    z-index:2;
+}
+
+.logo{
+    font-size:clamp(42px,10vw,90px);
+    font-weight:900;
+    letter-spacing:8px;
+    color:#fff;
+    text-shadow:
+        0 0 10px rgba(255,255,255,.35),
+        0 0 35px rgba(255,255,255,.12);
+}
+
+.logo-line{
+    width:120px;
+    height:3px;
+    background:#fff;
+    margin:15px auto;
+    box-shadow:0 0 15px rgba(255,255,255,.5);
+}
+
+.subtitle{
+    color:#999;
+    font-size:14px;
+    letter-spacing:3px;
+    margin-top:5px;
+}
+
+.header-badge{
+    display:inline-block;
+    margin-top:25px;
+    padding:7px 20px;
+    border:1px solid #333;
+    border-radius:4px;
+    color:#aaa;
+    font-size:12px;
+    letter-spacing:2px;
+    background:#0b0b0b;
+}
+
+/* ---------- NAV ---------- */
+
+nav{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,5,5,.88);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid #222;
+}
+
+.nav-inner{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    padding:12px;
+    overflow-x:auto;
+}
+
+.nav-inner a{
+    color:#999;
+    text-decoration:none;
+    padding:7px 14px;
+    border:1px solid transparent;
+    white-space:nowrap;
+    font-size:12px;
+    transition:.25s;
+}
+
+.nav-inner a:hover{
+    color:#fff;
+    border-color:#333;
+    background:#111;
+}
+
+/* ---------- CONTAINER ---------- */
+
+.container{
+    width:min(1100px,92%);
+    margin:auto;
+}
+
+section{
+    padding:70px 0 10px;
+}
+
+/* ---------- TITLE ---------- */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.section-title::before{
+    content:"";
+    width:5px;
+    height:38px;
+    background:#fff;
+    box-shadow:0 0 15px rgba(255,255,255,.4);
+}
+
+.section-title h2{
+    font-size:25px;
+    font-weight:900;
+}
+
+.section-title span{
+    color:#555;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+/* ---------- INTRO ---------- */
+
+.intro{
+    background:linear-gradient(145deg,#101010,#080808);
+    border:1px solid #242424;
+    padding:30px;
+    border-radius:14px;
+    position:relative;
+    overflow:hidden;
+}
+
+.intro::after{
+    content:"ULTRAYA";
+    position:absolute;
+    left:-20px;
+    bottom:-45px;
+    font-size:100px;
+    font-weight:900;
+    color:#fff;
+    opacity:.025;
+}
+
+.intro p{
+    color:#bbb;
+}
+
+.highlight{
+    color:#fff;
+    font-weight:800;
+}
+
+/* ---------- TYPES ---------- */
+
+.types{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.type-card{
+    background:#0c0c0c;
+    border:1px solid #242424;
+    border-radius:12px;
+    padding:25px 18px;
+    text-align:center;
+    transition:.3s;
+    position:relative;
+    overflow:hidden;
+}
+
+.type-card:hover{
+    transform:translateY(-5px);
+    border-color:#555;
+    background:#111;
+}
+
+.type-number{
+    color:#555;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.type-card h3{
+    margin:8px 0;
+    font-size:19px;
+    color:#fff;
+}
+
+.type-card p{
+    color:#888;
+    font-size:12px;
+}
+
+/* ---------- RULE CARDS ---------- */
+
+.rules{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.rule{
+    display:flex;
+    gap:18px;
+    align-items:flex-start;
+    background:linear-gradient(100deg,#0d0d0d,#090909);
+    border:1px solid #202020;
+    border-radius:10px;
+    padding:17px 20px;
+    transition:.25s;
+}
+
+.rule:hover{
+    border-color:#444;
+    transform:translateX(-3px);
+    background:#101010;
+}
+
+.rule-number{
+    min-width:38px;
+    height:38px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #333;
+    border-radius:7px;
+    background:#080808;
+    color:#fff;
+    font-weight:800;
+    font-size:13px;
+}
+
+.rule-text{
+    color:#aaa;
+    font-size:14px;
+    flex:1;
+}
+
+.rule-text strong{
+    color:#fff;
+}
+
+/* ---------- EXAMPLE ---------- */
+
+.example{
+    margin-top:20px;
+    background:#070707;
+    border:1px dashed #333;
+    border-radius:10px;
+    padding:20px;
+}
+
+.example-title{
+    font-size:12px;
+    color:#666;
+    margin-bottom:8px;
+}
+
+.example code{
+    color:#ddd;
+    font-family:monospace;
+    font-size:13px;
+}
+
+/* ---------- CONTACT ---------- */
+
+.contact-box{
+    margin-top:70px;
+    background:
+        linear-gradient(135deg,#111,#070707);
+    border:1px solid #292929;
+    border-radius:16px;
+    padding:35px;
+    text-align:center;
+}
+
+.contact-box h2{
+    font-size:28px;
+    font-weight:900;
+    margin-bottom:5px;
+}
+
+.contact-box .small{
+    color:#666;
+    font-size:12px;
+}
+
+.contacts{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+    margin-top:25px;
+}
+
+.contact{
+    color:#ddd;
+    text-decoration:none;
+    border:1px solid #292929;
+    background:#0b0b0b;
+    padding:9px 18px;
+    border-radius:7px;
+    font-size:13px;
+    transition:.25s;
+}
+
+.contact:hover{
+    color:#fff;
+    border-color:#666;
+    transform:translateY(-2px);
+}
+
+/* ---------- FOOTER ---------- */
+
+footer{
+    margin-top:70px;
+    padding:30px 20px;
+    text-align:center;
+    border-top:1px solid #1c1c1c;
+    color:#555;
+    font-size:12px;
+}
+
+footer strong{
+    color:#aaa;
+}
+
+/* ---------- TOP BUTTON ---------- */
+
+#top{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    width:42px;
+    height:42px;
+    border:1px solid #333;
+    background:#0b0b0b;
+    color:#fff;
+    border-radius:7px;
+    cursor:pointer;
+    opacity:0;
+    pointer-events:none;
+    transition:.3s;
+}
+
+#top.show{
+    opacity:1;
+    pointer-events:auto;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:750px){
+
+    header{
+        min-height:350px;
+    }
+
+    .types{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .section-title h2{
+        font-size:20px;
+    }
+
+    .intro{
+        padding:22px;
+    }
+
+    .rule{
+        padding:14px;
+        gap:12px;
+    }
+
+    .rule-number{
+        min-width:34px;
+        height:34px;
+    }
+
+    .rule-text{
+        font-size:13px;
+        line-height:1.9;
+    }
+
+    .contact-box{
+        padding:25px 15px;
+    }
+}
+
+@media(max-width:400px){
+
+    .types{
+        grid-template-columns:1fr;
+    }
+
+    .logo{
+        letter-spacing:4px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header id="home">
+    <div class="header-content">
+        <div class="logo">ULTRAYA</div>
+        <div class="logo-line"></div>
+        <div class="subtitle">ULTARAYA • TEAM CHECKER</div>
+        <div class="header-badge">OFFICIAL RULES</div>
+    </div>
+</header>
+
+<!-- NAV -->
+
+<nav>
+    <div class="nav-inner">
+        <a href="#types">انواع کل</a>
+        <a href="#descriptions">توضیحات</a>
+        <a href="#rules">قوانین</a>
+        <a href="#contact">ارتباط</a>
+    </div>
+</nav>
+
+<main class="container">
+
+<!-- INTRO -->
+<section>
+    <div class="section-title">
+        <h2>قوانین اولتریا</h2>
+        <span>RULES</span>
+    </div>
+
+    <div class="intro">
+        <p>
+            به صفحه رسمی قوانین <span class="highlight">اولتریا</span> خوش آمدید.
+            تمامی کلرها، داورها و اعضای مربوطه موظف به رعایت قوانین زیر هستند.
+            عدم رعایت قوانین می‌تواند باعث ثبت سیک یا بی‌اعتبار شدن کل شود.
+        </p>
+    </div>
+</section>
+
+
+<!-- TYPES -->
+
+<section id="types">
+
+    <div class="section-title">
+        <h2>انواع کل در اولتریا</h2>
+        <span>04 TYPES</span>
+    </div>
+
+    <div class="types">
+
+        <div class="type-card">
+            <div class="type-number">TYPE 01</div>
+            <h3>کل هکینگ</h3>
+            <p>HACKING</p>
+        </div>
+
+        <div class="type-card">
+            <div class="type-number">TYPE 02</div>
+            <h3>کل ساخت</h3>
+            <p>BUILD</p>
+        </div>
+
+        <div class="type-card">
+            <div class="type-number">TYPE 03</div>
+            <h3>کل آزاد</h3>
+            <p>FREE</p>
+        </div>
+
+        <div class="type-card">
+            <div class="type-number">TYPE 04</div>
+            <h3>کل سایبری</h3>
+            <p>CYBER</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DESCRIPTIONS -->
+
+<section id="descriptions">
+
+    <div class="section-title">
+        <h2>توضیح انواع کل</h2>
+        <span>DETAILS</span>
+    </div>
+
+    <div class="rules">
+
+        <div class="rule">
+            <div class="rule-number">01</div>
+            <div class="rule-text">
+                <strong>کل هکینگ:</strong>
+                همونطور که از اسمش مشخصه، باید سایتی یا دوربین مداربستهای رو هک کنی
+                و نتیجه رو به چکر یا داور نشون بدی.
+            </div>
+        </div>
+
+        <div class="example">
+            <div class="example-title">مثال درخواست کل</div>
+            <code>
+                «درخواست کل دارم، کل هکینگ هک وبلاگم تایم ۲۰ دقیقه قوانین سایب»
+            </code>
+            <p style="color:#777;margin-top:10px;font-size:12px;">
+                داخل نوع باید تایم مشخص بشه، موضوع کل دقیقاً معلوم باشه و نوع کل هم حتماً ذکر بشه.
+            </p>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">02</div>
+            <div class="rule-text">
+                <strong>کل ساخت:</strong>
+                باید چیزی بسازی؛ مثلاً ساخت ویروس یا ساخت لینک مخرب.
+            </div>
+        </div>
+
+        <div class="rule">
+            <div class="rule-number">03</div>
+            <div class="rule-text">
+                <strong>کل آزاد:</strong>
+                هر نوعی که بخوای میتونی بدی؛ مثلاً به دست آوردن یوزر و پسورد یک سایت
+                یا گذاشتن ویدیوی صفر ثانیهای در اینستاگرام.
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- RULES -->
+
+<section id="rules">
+
+    <div class="section-title">
+        <h2>نکته‌هایی که باید رعایت کنید</h2>
+        <span>28 RULES</span>
+    </div>
+
+    <div class="rules">
+
+        <div class="rule"><div class="rule-number">01</div><div class="rule-text">
+            وقتی کلر یک میخواد نوع رو خالی بده، میره پیوی کلر دو یا توی همون گپی که هست میگه «درخواست کل دارم»، بعد نوع رو میفرسته براش.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">02</div><div class="rule-text">
+            وقتی نوع رو دادید و کلر دو سین زد، باید اول نوع اس شه و اگه کلر دو بخواد میتونه ریپ نزنه روی نوع و نکله.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">03</div><div class="rule-text">
+            وقتی کلر دو روی نوع ریپ زد، شما شروع میکنید از ۱۰ تا ۰ میشمرید. بعد از ۰ میگید «شروع کل» و بعد کلرها میتونن جواب نوع رو بدن.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">04</div><div class="rule-text">
+            اگه جولان بدید تو پیوی یا تو گپ فرقی نداره. به محض اینکه سین زد باید بکله. عین نوع نیست که کلر دو بخواد بکله، نخواست ریپ نزنه و کل نندازه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">05</div><div class="rule-text">
+            بعد از سین زدن جولان توسط کلر دو، ۱۰ دقیقه تایم جوین شدن توی تونل داره. بعد از ۱۰ دقیقه نیومد، سین و عدم جوین میشه که توی قوانین اولتریا باخت حساب میشه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">06</div><div class="rule-text">
+            بعد از جوین شدن توی تونل، ۱۰ دقیقه داور تایم میده که کلر دو نوع انتخاب کنه. ۱۰ دقیقه بگذره و انتخاب نکنه، سیک میشه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">07</div><div class="rule-text">
+            وقتی نوع رو انتخاب کرد کلر دو، یا اگه نوع به انتخاب داور هست، بعد از اینکه نوع رو آورد پایین، داور ۲۵ مین به کلر دو تایم میده که نوع رو حل کنه و اگر نتونست سیک.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">08</div><div class="rule-text">
+            در جولان اگه از قوانین سیکشده یا نامعتبر استفاده بشه، سیکتون میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">09</div><div class="rule-text">
+            در قوانین اولتریا بعد از سه بار توهین به داور یا کلر دو در تونل، مساوی با سیکه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">10</div><div class="rule-text">
+            بیشتر از ۷ دقیقه اف شدن در کل، مساوی با سیکه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">11</div><div class="rule-text">
+            اگه نت هرکدوم از کلرها قطع بشه و بیشتر از ۷ دقیقه اف شده باشن ولی مدرک داشته باشن، کل از سر گرفته میشه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">12</div><div class="rule-text">
+            اگه کل کات باشه، کلر دو باید مدرک معتبر بیاره؛ یعنی بنر زده باشه تو کینگش و توی بنر تایم و تاریخ به میلادی و شمسی نوشته باشه و دقیقاً نوشته باشه که تمام هویتاش کل کاته.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">13</div><div class="rule-text">
+            اگه بنر کل کاتی ادیت شده باشه، بنر فاقد اعتباره و کل کات حساب نمیشه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">14</div><div class="rule-text">
+            باید حداقل سه روز از بنر کل کاتی گذشته باشه. اگه جولان بهتون خورد نکلید؛ اگه کمتر از سه روز گذشته باشه بازم باید برید تونل و بکلید.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">15</div><div class="rule-text">
+            اگه کلر دو حوزش نبود، باید کینگشو کامل به داور نشون بده و داور چک کنه و چندین بنر ازش خودش فور بزنه، اگه الکی گفته باشه باید باز به کل ادامه بده.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">16</div><div class="rule-text">
+            برای کل سایبری باید تمام جولانهاتون و بنرهای مربوط به سایبریتون (حتی بنر کلکات و…) داخل کینگی به اسم King Cyb ثبت شده باشه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">17</div><div class="rule-text">
+            اگه بعد از ثبت کل کاتیتون حتی یک بنر برد و باخت ازتون ثبت شده باشه، کل کاتی فاقد اعتبار میشه و باید بکلید.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">18</div><div class="rule-text">
+            نوع رو چه از کینگ فور بزنید چه همینطوری بفرستید مهم نیست؛ ولی جولان باید حتماً از کینگ یا کینگ سایب ارسال بشه، در غیر این صورت سیکتون میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">19</div><div class="rule-text">
+            در قوانین اولتریا نوع رو نوع یا جولان رو نوع یا جولان رو جولان مساوی با سیکه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">20</div><div class="rule-text">
+            جولان با هویت سیکشده یا فیک (قفلیشو نداشته باشی) در قوانین اولتریا مساوی با سیکه.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">21</div><div class="rule-text">
+            در قوانین اولتریا اگه سه بار سیکتون بخوره به یک کلر (پشت سر هم یا با فاصله، فرقی نداره) باید تمام قفلی و هویتهاتونو بهش انتقال بدید.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">22</div><div class="rule-text">
+            توی بنر جولانتون باید حداقل دو تا نوع داشته باشید؛ در غیر این صورت سیکتون میخوره به کلر دو.
+        </div></div>
+        <div class="rule"><div class="rule-number">23</div><div class="rule-text">
+            باید در جولان هویت خودتون و هویت کلر دو میتونید از ﴿ پیوی هرکسی فور شد ﴾ استفاده کنید، نوعهاتون، نکات، قوانین و تونل باشه؛ در غیر این صورت جولان فاقد اعتباره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">24</div><div class="rule-text">
+            سین مخفی در قوانین اولتریا دقیقاً عین سین عادی هست و در صورتی که کلر نیاد بکله، سیکش میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">25</div><div class="rule-text">
+            نوشتن اسم چکر و داور در جولان مهم نیست؛ فقط کافیه توی تونلی که میرید داور معتبر باشه و اونجا داوری رو بگیره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">26</div><div class="rule-text">
+            کینگ کلر یک یا دو اگه خصوصی باشه هیچ فرقی نداره چقدر ممبر داشته باشه، ولی اگه عمومی بود باید حداقل ۱۰۰ تا ممبر داشته باشه؛ در غیر این صورت سیکش میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">27</div><div class="rule-text">
+            میتونید وقتی حوزتون نیست بالاخواه بیارید جاتون بکله، ولی اگر نتونه حل کنه سیک جفتتون میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">28</div><div class="rule-text">
+            اگه ممبرهای تونل زیر صد نفر باشه، جولان فاقد اعتباره.
+        </div></div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>ULTRAYA</h2>
+
+        <div class="small">
+            نویسندگان قوانین و راه‌های ارتباطی
+        </div>
+
+        <div class="contacts">
+
+            <a class="contact"
+               href="https://t.me/Ultaraya"
+               target="_blank">
+                @Ultaraya
+            </a>
+
+            <a class="contact"
+               href="https://t.me/User_Gazvin"
+               target="_blank">
+                @User_Gazvin
+            </a>
+
+            <a class="contact"
+               href="https://t.me/Team_cheker_Ultaraya"
+               target="_blank">
+                @Team_cheker_Ultaraya
+            </a>
+
+            <a class="contact"
+               href="tel:09059242513">
+                09059242513
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    <strong>ULTRAYA</strong> -- قوانین رسمی تیم چکر اولتریا
+    <br>
+    تمامی قوانین مندرج در این صفحه متعلق به مجموعه اولتریا است.
+</footer>
+
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+
+<script>
+
+const topBtn = document.getElementById("top");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 500){
+        topBtn.classList.add("show");
+    }else{
+        topBtn.classList.remove("show");
+    }
+
+});
+
+</script>
+
+</body>
+</html><div class="rule"><div class="rule-number">23</div><div class="rule-text">
+            باید در جولان هویت خودتون و هویت کلر دو میتونید از ﴿ پیوی هرکس فور شد ﴾ استفاده کنید ، نوعهاتون، نکات، قوانین و تونل باشه؛ در غیر این صورت جولان فاقد اعتباره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">24</div><div class="rule-text">
+            سین مخفی در قوانین اولتریا دقیقاً عین سین عادی هست و در صورتی که کلر نیاد بکله، سیکش میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">25</div><div class="rule-text">
+            نوشتن اسم چکر و داور در جولان مهم نیست؛ فقط کافیه توی تونلی که میرید داور معتبر باشه و اونجا داوری رو بگیره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">26</div><div class="rule-text">
+            کینگ کلر یک یا دو اگه خصوصی باشه هیچ فرقی نداره چقدر ممبر داشته باشه، ولی اگه عمومی بود باید حداقل ۱۰۰ تا ممبر داشته باشه؛ در غیر این صورت سیکش میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">27</div><div class="rule-text">
+            میتونید وقتی حوزتون نیست بالاخواه بیارید جاتون بکله، ولی اگر نتونه حل کنه سیک جفتتون میخوره.
+        </div></div>
+
+        <div class="rule"><div class="rule-number">28</div><div class="rule-text">
+            اگه ممبرهای تونل زیر صد نفر باشه، جولان فاقد اعتباره.
+        </div></div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <h2>ULTRAYA</h2>
+
+        <div class="small">
+            نویسندگان قوانین و راه‌های ارتباطی
+        </div>
+
+        <div class="contacts">
+
+            <a class="contact"
+               href="https://t.me/Ultaraya"
+               target="_blank">
+                @Ultaraya
+            </a>
+
+            <a class="contact"
+               href="https://t.me/User_Gazvin"
+               target="_blank">
+                @User_Gazvin
+            </a>
+
+            <a class="contact"
+               href="https://t.me/Team_cheker_Ultaraya"
+               target="_blank">
+                @Team_cheker_Ultaraya
+            </a>
+
+            <a class="contact"
+               href="tel:09059242513">
+                09059242513
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    <strong>ULTRAYA</strong> -- قوانین رسمی تیم چکر اولتریا
+    <br>
+    تمامی قوانین مندرج در این صفحه متعلق به مجموعه اولتریا است.
+</footer>
+
+
+<button id="top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    ↑
+</button>
+
+
+<script>
+
+const topBtn = document.getElementById("top");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 500){
+        topBtn.classList.add("show");
+    }else{
+        topBtn.classList.remove("show");
+    }
+
+});
+
+</script>
+
+</body>
+</html>
